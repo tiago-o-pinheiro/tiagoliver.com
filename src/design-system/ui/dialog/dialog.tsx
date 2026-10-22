@@ -4,7 +4,9 @@ import { type ComponentProps } from 'react'
 
 import { cn } from '../lib/cn'
 
-export type DialogContentProps = ComponentProps<typeof DialogPrimitive.Content>
+export type DialogContentProps = ComponentProps<typeof DialogPrimitive.Content> & {
+  closeLabel?: string
+}
 export type DialogHeaderProps = ComponentProps<'div'>
 export type DialogFooterProps = ComponentProps<'div'>
 export type DialogTitleProps = ComponentProps<typeof DialogPrimitive.Title>
@@ -14,12 +16,17 @@ export const Dialog = DialogPrimitive.Root
 export const DialogTrigger = DialogPrimitive.Trigger
 export const DialogClose = DialogPrimitive.Close
 
-export const DialogContent = ({ className, children, ...props }: DialogContentProps) => (
+export const DialogContent = ({
+  className,
+  closeLabel = 'Close',
+  children,
+  ...props
+}: DialogContentProps) => (
   <DialogPrimitive.Portal>
-    <DialogPrimitive.Overlay className="fixed inset-0 bg-foreground/50" />
+    <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-overlay" />
     <DialogPrimitive.Content
       className={cn(
-        'fixed top-1/2 left-1/2 flex w-full max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg border border-border bg-popover p-6 text-popover-foreground shadow-md',
+        'fixed top-1/2 left-1/2 z-50 flex w-full max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-lg border border-border bg-popover p-6 text-popover-foreground shadow-md',
         className,
       )}
       {...props}
@@ -27,7 +34,7 @@ export const DialogContent = ({ className, children, ...props }: DialogContentPr
       {children}
       <DialogPrimitive.Close className="absolute top-2 right-2 inline-flex size-11 items-center justify-center rounded-md transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
         <X aria-hidden="true" className="size-4" />
-        <span className="sr-only">Close</span>
+        <span className="sr-only">{closeLabel}</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPrimitive.Portal>

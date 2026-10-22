@@ -5,8 +5,9 @@ import { cn } from '../lib/cn'
 
 export const buttonVariants = cva(
   [
-    'inline-flex min-w-11 items-center justify-center gap-2 rounded-md font-medium transition-colors',
+    'inline-flex min-w-11 cursor-pointer items-center justify-center gap-2 rounded-full font-medium transition',
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+    'active:translate-y-px motion-reduce:active:translate-y-0',
     'disabled:cursor-not-allowed disabled:opacity-60',
   ],
   {
@@ -14,13 +15,15 @@ export const buttonVariants = cva(
       variant: {
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        outline: 'border border-border-strong bg-transparent text-foreground hover:bg-muted',
         ghost: 'bg-transparent text-foreground hover:bg-muted',
         destructive: 'bg-danger text-danger-foreground hover:bg-danger/90',
       },
       size: {
-        sm: 'min-h-11 px-3 text-sm',
-        md: 'min-h-11 px-4 text-base',
-        lg: 'min-h-12 px-6 text-lg',
+        sm: 'min-h-11 px-4 text-sm',
+        md: 'min-h-12 px-5 text-sm',
+        lg: 'min-h-12 px-6 text-base',
+        icon: 'size-11 p-0',
       },
     },
     defaultVariants: { variant: 'primary', size: 'md' },
