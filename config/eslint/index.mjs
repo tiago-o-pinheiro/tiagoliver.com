@@ -24,7 +24,7 @@ const HOOK_FILES = ['**/*.tsx', '**/hooks/**/*.ts', '**/use-*.ts']
 const CONFIG_FILES = ['**/*.config.*', 'eslint.config.mjs']
 const PUBLIC_ENV_FILE = 'src/config/public-env.ts'
 const FRAMEWORK_DEFAULT_EXPORTS = [
-  '**/app/**/{page,layout,error,not-found,loading,global-error,template,default}.tsx',
+  '**/app/**/{page,layout,error,not-found,global-not-found,loading,global-error,template,default}.tsx',
   '**/app/**/{sitemap,robots,manifest}.ts',
   ...CONFIG_FILES,
 ]

@@ -11,6 +11,7 @@ export const Env = Type.Object({
   ),
   PORT: Type.Integer({ minimum: 1, maximum: 65535, default: 3000 }),
   CORS_ORIGIN: Type.String({ minLength: 1, default: 'http://localhost:3000' }),
+  SITE_URL: Type.String({ pattern: '^https?://', default: 'https://tiagoliver.com' }),
 })
 export type Env = Static<typeof Env>
 
