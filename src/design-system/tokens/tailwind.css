@@ -13,6 +13,7 @@
   --color-danger: var(--danger);
   --color-danger-foreground: var(--danger-foreground);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-ring: var(--ring);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -21,14 +22,21 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-input: var(--input);
+  --color-overlay: var(--overlay);
 
   --radius-sm: var(--corner-sm);
   --radius-md: var(--corner-md);
   --radius-lg: var(--corner-lg);
+  --radius-xl: var(--corner-xl);
   --radius-full: var(--corner-full);
 
   --font-sans: var(--typeface-sans);
   --font-mono: var(--typeface-mono);
+
+  --tracking-display: var(--letterspace-display);
+  --tracking-heading: var(--letterspace-heading);
+  --tracking-label: var(--letterspace-label);
+  --leading-display: var(--lineheight-display);
 
   --shadow-sm: var(--elevation-sm);
   --shadow-md: var(--elevation-md);

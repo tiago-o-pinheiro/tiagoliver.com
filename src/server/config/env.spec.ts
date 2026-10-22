@@ -22,4 +22,10 @@ describe('parseEnv', () => {
     expect(parse).toThrow(/PORT/)
     expect(parse).toThrow(/NODE_ENV/)
   })
+
+  it('Given a site url without a protocol, should reject it', () => {
+    const parse = () => parseEnv({ SITE_URL: '::site::' })
+
+    expect(parse).toThrow(/SITE_URL/)
+  })
 })
