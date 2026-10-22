@@ -16,7 +16,7 @@ describe('ErrorPage', () => {
 
     await user.click(screen.getByRole('button', { name: 'Retry' }))
 
-    expect(screen.getByRole('heading', { name: 'Something went wrong on our side' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: "This page couldn't load" })).toBeVisible()
     expect(reset).toHaveBeenCalledOnce()
   })
 
@@ -24,7 +24,7 @@ describe('ErrorPage', () => {
     vi.mocked(useParams).mockReturnValue({ locale: 'es' })
     render(<ErrorPage reset={vi.fn()} />)
 
-    expect(screen.getByRole('heading', { name: 'Algo ha fallado por nuestra parte' })).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'No se ha podido cargar la página' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Reintentar' })).toBeVisible()
   })
 

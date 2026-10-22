@@ -11,7 +11,7 @@ describe('HomePage', () => {
     await renderHome('en')
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'I build product interfaces with React and TypeScript',
+      'I build web interfaces with React and TypeScript',
     )
     for (const link of screen.getAllByRole('link', { name: /Download CV/ })) {
       expect(link).toHaveAttribute('href', '/en/cv.pdf')
@@ -26,7 +26,7 @@ describe('HomePage', () => {
     ).toEqual([
       'Experiencia',
       'Proyectos',
-      'Habilidades',
+      'Conocimientos técnicos',
       'Formación e idiomas',
       'Sobre mí',
       'Contacto',
