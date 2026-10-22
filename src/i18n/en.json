@@ -1,6 +1,79 @@
 {
   "common.retry": "Retry",
-  "common.loading": "Loading...",
-  "errors.generic": "Something went wrong. Please try again.",
-  "health.ok": "All systems operational"
+  "errors.title": "Something went wrong on our side",
+  "errors.body": "Nothing you did caused this. Please try again.",
+
+  "meta.title": "Tiago Oliver — Frontend Engineer, React & TypeScript",
+  "meta.description": "Frontend engineer in Barcelona building product interfaces with React and TypeScript, from Figma to production. Open to remote roles in CET.",
+
+  "nav.label": "Primary",
+  "nav.skip": "Skip to content",
+  "nav.home": "Tiago Oliver, home",
+  "nav.experience": "Experience",
+  "nav.work": "Work",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+
+  "menu.open": "Open menu",
+  "menu.title": "Menu",
+  "menu.close": "Close menu",
+
+  "language.label": "Language",
+
+  "theme.toDark": "Switch to dark theme",
+  "theme.toLight": "Switch to light theme",
+
+  "cv.download": "Download CV",
+  "cv.short": "CV",
+  "cv.format": "PDF",
+
+  "hero.eyebrow": "Frontend engineer · React & TypeScript",
+  "hero.title": "I build product interfaces with React and TypeScript, from Figma to production.",
+  "hero.lead": "Six years shipping production UI. At Immfly I moved a legacy codebase onto TypeScript and a token-based Tailwind design system. Based in Barcelona, open to remote roles in CET.",
+  "hero.email": "Email me",
+
+  "proof.label": "In brief",
+  "proof.current": "Currently",
+  "proof.since": "Since {{year}}",
+  "proof.base": "Based in",
+
+  "section.experience": "Experience",
+  "section.work": "Selected work",
+  "section.skills": "Skills",
+  "section.background": "Education & languages",
+  "section.about": "About me",
+  "section.contact": "Contact",
+
+  "experience.present": "Present",
+  "experience.earlier": "Earlier",
+  "experience.technologies": "Technologies",
+
+  "background.education": "Education",
+  "background.languages": "Languages",
+
+  "about.photoAlt": "Portrait of Tiago Oliver",
+  "about.paragraph1": "I'm Tiago, a frontend engineer in Barcelona. I care about interfaces that feel calm and obvious, and about the systems behind them: components, tokens and types that let a team move quickly without breaking things.",
+  "about.paragraph2": "I came to code from working with people. From 2013 to 2017 I led a customer-support team of twelve, where I learned to listen before building, to prioritise, and to explain trade-offs to people who don't speak code. In 2019 I moved into software engineering.",
+  "about.paragraph3": "I'm also studying Psychology at the UOC, which shapes how I think about attention, habits and the people on the other side of the screen. I work in English, Spanish, Portuguese and Catalan.",
+  "about.cta": "Let's talk",
+
+  "contact.title": "Open to remote frontend roles and freelance product work.",
+
+  "footer.rights": "© {{year}} Tiago Oliver · Barcelona",
+  "footer.source": "Built with Next.js · Source on GitHub",
+
+  "notFound.title": "We could not find that page",
+  "notFound.body": "It may have moved, or the address may be mistyped.",
+  "notFound.home": "Back to home",
+
+  "cv.summary": "Summary",
+  "cv.experience": "Experience",
+  "cv.earlier": "Earlier experience",
+  "cv.projects": "Projects",
+  "cv.skills": "Skills",
+  "cv.education": "Education",
+  "cv.languages": "Languages",
+  "cv.present": "Present",
+  "cv.documentTitle": "{{name}} — CV",
+  "cv.fileName": "Tiago-Oliver-CV-EN.pdf"
 }
