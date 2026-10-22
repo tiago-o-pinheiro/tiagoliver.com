@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "tiago-devkit": {
+      "source": {
+        "source": "github",
+        "repo": "tiago-o-pinheiro/agents-workflow"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "dev@tiago-devkit": true
+  }
+}
