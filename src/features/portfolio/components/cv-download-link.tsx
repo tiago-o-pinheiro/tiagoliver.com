@@ -1,5 +1,4 @@
 import { type VariantProps } from 'class-variance-authority'
-import { Download } from 'lucide-react'
 
 import { buttonVariants } from '@/design-system/ui/button'
 import { cn } from '@/design-system/ui/lib/cn'
@@ -20,8 +19,8 @@ export const CvDownloadLink = ({ locale, t, variant, size, className }: CvDownlo
     type="application/pdf"
     className={cn(buttonVariants({ variant, size }), className)}
   >
-    <Download aria-hidden="true" className="size-4" />
+    <span aria-hidden="true">↓</span>
     {t('cv.download')}
-    <span className="font-mono text-xs opacity-70">{t('cv.format')}</span>
+    <span className="text-xs opacity-70">{t('cv.format')}</span>
   </a>
 )

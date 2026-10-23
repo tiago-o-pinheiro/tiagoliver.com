@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 
 import HomePage from './page'
@@ -7,41 +8,34 @@ const renderHome = async (locale: string) =>
   render(await HomePage({ params: Promise.resolve({ locale }) }))
 
 describe('HomePage', () => {
-  it('Given the english site, should lead with the role statement and offer the english CV', async () => {
+  it('Given the english site, should introduce Tiago and link the full CV and the PDF', async () => {
     await renderHome('en')
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'I build web interfaces with React and TypeScript',
-    )
-    for (const link of screen.getAllByRole('link', { name: /Download CV/ })) {
-      expect(link).toHaveAttribute('href', '/en/cv.pdf')
-    }
+    expect(screen.getByRole('heading', { level: 1, name: 'Tiago Oliver' })).toBeVisible()
+    expect(screen.getByRole('link', { name: /View full CV/ })).toHaveAttribute('href', '/en/resume')
+    expect(screen.getByRole('link', { name: 'cv.pdf' })).toHaveAttribute('href', '/en/cv.pdf')
   })
 
-  it('Given the spanish site, should render every section in order and in spanish', async () => {
+  it('Given the spanish site, should label the terminal and the CV link in spanish', async () => {
     await renderHome('es')
 
-    expect(
-      screen.getAllByRole('heading', { level: 2 }).map((heading) => heading.textContent),
-    ).toEqual([
-      'Experiencia',
-      'Proyectos',
-      'Conocimientos técnicos',
-      'Formación e idiomas',
-      'Sobre mí',
-      'Contacto',
-    ])
-    expect(screen.getAllByRole('link', { name: /Descargar CV/ })[0]).toHaveAttribute(
+    expect(screen.getByRole('combobox', { name: 'Comando' })).toBeVisible()
+    expect(screen.getByText('Escribe / para ver los comandos')).toBeVisible()
+    expect(screen.getByRole('link', { name: /Ver currículum completo/ })).toHaveAttribute(
       'href',
-      '/es/cv.pdf',
+      '/es/resume',
     )
   })
 
-  it('Given the about section, should show the portrait outside the hero', async () => {
+  it('Given the first screen, should keep the portrait for the about output only', async () => {
+    const user = userEvent.setup()
     await renderHome('en')
 
-    const portrait = screen.getByRole('img', { name: 'Portrait of Tiago Oliver' })
+    expect(screen.queryByRole('img', { name: 'Portrait of Tiago Oliver' })).not.toBeInTheDocument()
 
-    expect(portrait.closest('section')).toHaveAttribute('id', 'about')
+    await user.type(screen.getByRole('combobox', { name: 'Command' }), 'about{Enter}')
+
+    const about = screen.getByRole('region', { name: 'About me' })
+    expect(within(about).getByRole('img', { name: 'Portrait of Tiago Oliver' })).toBeVisible()
   })
 })

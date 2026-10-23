@@ -2,16 +2,11 @@ import { notFound } from 'next/navigation'
 
 import { getTranslator, isLocale } from '@/i18n'
 
-import { AboutSection } from '@/features/portfolio/components/about-section'
-import { BackgroundSection } from '@/features/portfolio/components/background-section'
-import { ContactSection } from '@/features/portfolio/components/contact-section'
-import { ExperienceSection } from '@/features/portfolio/components/experience-section'
-import { HeroSection } from '@/features/portfolio/components/hero-section'
-import { ProofSection } from '@/features/portfolio/components/proof-section'
-import { SiteFooter } from '@/features/portfolio/components/site-footer'
-import { SiteHeader } from '@/features/portfolio/components/site-header'
-import { SkillsSection } from '@/features/portfolio/components/skills-section'
-import { WorkSection } from '@/features/portfolio/components/work-section'
+import { ResumeSectionBody } from '@/features/portfolio/components/resume-section-body'
+import { Terminal } from '@/features/portfolio/components/terminal'
+import { TerminalBanner } from '@/features/portfolio/components/terminal-banner'
+import { TerminalWindow } from '@/features/portfolio/components/terminal-window'
+import { PAGE_PATHS, type ResumeSectionId } from '@/features/portfolio/navigation'
 import { resumeService } from '@/server/modules/resume/services/resume.service'
 
 type HomePageProps = {
@@ -25,33 +20,25 @@ const HomePage = async ({ params }: HomePageProps) => {
   }
   const t = getTranslator(locale)
   const resume = resumeService.getResume(locale)
+  const body = (id: ResumeSectionId) => (
+    <ResumeSectionBody id={id} resume={resume} locale={locale} t={t} />
+  )
 
   return (
-    <>
-      <SiteHeader locale={locale} name={resume.profile.name} t={t} />
-      <main id="main" tabIndex={-1} className="mx-auto max-w-5xl px-4 outline-none sm:px-6">
-        <HeroSection locale={locale} profile={resume.profile} t={t} />
-        <ProofSection resume={resume} t={t} />
-        <ExperienceSection
-          index={1}
-          locale={locale}
-          positions={resume.positions}
-          earlier={resume.earlier}
-          t={t}
-        />
-        <WorkSection index={2} projects={resume.projects} t={t} />
-        <SkillsSection index={3} skills={resume.skills} t={t} />
-        <BackgroundSection
-          index={4}
-          education={resume.education}
-          languages={resume.languages}
-          t={t}
-        />
-        <AboutSection index={5} t={t} />
-        <ContactSection index={6} locale={locale} profile={resume.profile} t={t} />
-      </main>
-      <SiteFooter year={new Date().getFullYear()} t={t} />
-    </>
+    <TerminalWindow locale={locale} path={PAGE_PATHS.home} t={t}>
+      <Terminal
+        locale={locale}
+        banner={<TerminalBanner resume={resume} locale={locale} t={t} />}
+        sections={{
+          experience: body('experience'),
+          projects: body('projects'),
+          skills: body('skills'),
+          education: body('education'),
+          about: body('about'),
+          contact: body('contact'),
+        }}
+      />
+    </TerminalWindow>
   )
 }
 

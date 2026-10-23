@@ -2,25 +2,25 @@ import { type ReactNode } from 'react'
 
 type SectionFrameProps = {
   id: string
-  index: number
   title: string
+  index?: number
   children: ReactNode
 }
 
-export const SectionFrame = ({ id, index, title, children }: SectionFrameProps) => (
-  <section
-    id={id}
-    aria-labelledby={`${id}-title`}
-    className="grid scroll-mt-16 gap-8 border-t border-border py-16 sm:py-20 md:grid-cols-4"
-  >
-    <header className="flex items-baseline gap-3 md:sticky md:top-24 md:flex-col md:gap-2 md:self-start">
-      <span aria-hidden="true" className="font-mono text-xs text-muted-foreground tabular-nums">
-        {String(index).padStart(2, '0')}
-      </span>
-      <h2 id={`${id}-title`} className="text-xl font-semibold tracking-heading">
-        {title}
-      </h2>
-    </header>
-    <div className="md:col-span-3">{children}</div>
+export const SectionFrame = ({ id, title, index, children }: SectionFrameProps) => (
+  <section id={id} aria-labelledby={`${id}-title`} className="flex scroll-mt-6 flex-col gap-6 py-8">
+    <h2
+      id={`${id}-title`}
+      className="flex items-center gap-3 font-display text-3xl leading-display uppercase sm:text-4xl"
+    >
+      {index === undefined ? null : (
+        <span aria-hidden="true" className="text-muted-foreground tabular-nums">
+          {String(index).padStart(2, '0')}
+        </span>
+      )}
+      <span>{title}</span>
+      <span aria-hidden="true" className="h-px min-w-6 flex-1 bg-foreground" />
+    </h2>
+    {children}
   </section>
 )
