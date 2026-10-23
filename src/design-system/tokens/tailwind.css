@@ -32,6 +32,7 @@
 
   --font-sans: var(--typeface-sans);
   --font-mono: var(--typeface-mono);
+  --font-display: var(--typeface-display);
 
   --tracking-display: var(--letterspace-display);
   --tracking-heading: var(--letterspace-heading);
@@ -43,4 +44,24 @@
 
   --default-transition-duration: var(--motion-base);
   --default-transition-timing-function: var(--motion-ease-out);
+
+  --animate-blink: blink var(--motion-blink) step-end infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@utility caret-block {
+  caret-shape: block;
+}
+
+@utility render-pixelated {
+  image-rendering: pixelated;
 }
