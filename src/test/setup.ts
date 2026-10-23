@@ -5,3 +5,7 @@ import { afterEach } from 'vitest'
 afterEach(() => {
   cleanup()
 })
+
+if (typeof Element !== 'undefined') {
+  Element.prototype.scrollIntoView = () => undefined
+}

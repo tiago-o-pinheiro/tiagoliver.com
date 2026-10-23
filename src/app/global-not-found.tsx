@@ -1,15 +1,26 @@
 import { type Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { IBM_Plex_Mono, VT323 } from 'next/font/google'
 import Link from 'next/link'
 
+import { textLinkVariants } from '@/design-system/ui/text-link'
 import { getTranslator, SUPPORTED_LOCALES } from '@/i18n'
 
 import { THEME_INIT_SCRIPT } from '@/lib/theme'
 
 import './globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-plex-mono',
+  display: 'swap',
+})
+const vt323 = VT323({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-vt323',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Tiago Oliver — 404',
@@ -17,13 +28,13 @@ export const metadata: Metadata = {
 }
 
 const GlobalNotFound = () => (
-  <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable}`}>
+  <html lang="en" suppressHydrationWarning className={`${plexMono.variable} ${vt323.variable}`}>
     <head>
       <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
     </head>
-    <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+    <body className="min-h-dvh bg-background font-mono text-foreground antialiased selection:bg-foreground selection:text-background">
       <main className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center gap-12 px-4 py-16 sm:px-6">
-        <p className="font-mono text-xs tracking-label text-muted-foreground uppercase">404</p>
+        <p className="font-display text-7xl leading-display">404</p>
         <div className="grid gap-12 sm:grid-cols-2">
           {SUPPORTED_LOCALES.map((locale) => {
             const t = getTranslator(locale)
@@ -31,17 +42,18 @@ const GlobalNotFound = () => (
               <section
                 key={locale}
                 lang={locale}
-                className="flex flex-col items-start gap-4 border-t border-border pt-6"
+                className="flex flex-col items-start gap-4 border-t border-foreground pt-6"
               >
-                <h1 className="text-2xl font-semibold tracking-heading text-balance">
+                <h1 className="font-display text-4xl leading-display text-balance uppercase">
                   {t('notFound.title')}
                 </h1>
                 <p className="text-muted-foreground">{t('notFound.body')}</p>
                 <Link
                   href={`/${locale}`}
                   hrefLang={locale}
-                  className="inline-flex min-h-11 items-center font-medium text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className={textLinkVariants({ target: 'touch' })}
                 >
+                  <span aria-hidden="true">←&nbsp;</span>
                   {t('notFound.home')}
                 </Link>
               </section>

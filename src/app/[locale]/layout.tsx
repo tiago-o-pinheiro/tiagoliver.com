@@ -1,5 +1,5 @@
 import { type Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { IBM_Plex_Mono, VT323 } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { type ReactNode } from 'react'
 
@@ -10,8 +10,18 @@ import { env } from '@/server/config/env'
 
 import '../globals.css'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-plex-mono',
+  display: 'swap',
+})
+const vt323 = VT323({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-vt323',
+  display: 'swap',
+})
 
 type LocaleParams = {
   params: Promise<{ locale: string }>
@@ -68,16 +78,17 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   return (
     <html
       lang={locale}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} motion-safe:scroll-smooth`}
+      className={`${plexMono.variable} ${vt323.variable} motion-safe:scroll-smooth`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+      <body className="min-h-dvh bg-background font-mono text-foreground antialiased selection:bg-foreground selection:text-background">
         <a
           href="#main"
-          className="sr-only rounded-full bg-primary px-4 py-3 font-medium text-primary-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+          className="sr-only border border-background bg-foreground px-4 py-3 font-medium text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
         >
           {getTranslator(locale)('nav.skip')}
         </a>

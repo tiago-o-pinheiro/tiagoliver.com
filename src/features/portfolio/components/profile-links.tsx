@@ -1,6 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
-
-import { buttonVariants } from '@/design-system/ui/button'
+import { textLinkVariants } from '@/design-system/ui/text-link'
 import { type Models } from '@/models'
 
 type ProfileLinksProps = {
@@ -8,17 +6,17 @@ type ProfileLinksProps = {
 }
 
 export const ProfileLinks = ({ links }: ProfileLinksProps) => (
-  <ul className="flex flex-wrap items-center gap-1">
+  <ul className="flex flex-wrap items-center gap-x-4">
     {links.map((link) => (
       <li key={link.href}>
         <a
           href={link.href}
           rel="me noopener"
           target="_blank"
-          className={buttonVariants({ variant: 'ghost' })}
+          className={textLinkVariants({ target: 'touch' })}
         >
           {link.label}
-          <ArrowUpRight aria-hidden="true" className="size-4 text-muted-foreground" />
+          <span aria-hidden="true">&nbsp;↗</span>
         </a>
       </li>
     ))}

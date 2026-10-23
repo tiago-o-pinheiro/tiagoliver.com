@@ -10,17 +10,17 @@ afterEach(() => {
 })
 
 const renderToggle = () =>
-  render(<ThemeToggle toDarkLabel="::to-dark::" toLightLabel="::to-light::" />)
+  render(<ThemeToggle label="::theme::" lightLabel="::light::" darkLabel="::dark::" />)
 
 describe('ThemeToggle', () => {
-  it('Given the light theme, should switch to dark and offer to switch back', async () => {
+  it('Given the light theme, should switch to dark and mark it as chosen', async () => {
     const user = userEvent.setup()
     renderToggle()
 
-    await user.click(screen.getByRole('button', { name: '::to-dark::' }))
+    await user.click(screen.getByRole('button', { name: '::dark::' }))
 
     expect(document.documentElement).toHaveClass('dark')
-    expect(await screen.findByRole('button', { name: '::to-light::' })).toBeVisible()
+    expect(await screen.findByRole('button', { name: '::dark::', pressed: true })).toBeVisible()
   })
 
   it('Given the dark theme, should switch back to light and remember it', async () => {
@@ -28,7 +28,7 @@ describe('ThemeToggle', () => {
     const user = userEvent.setup()
     renderToggle()
 
-    await user.click(screen.getByRole('button', { name: '::to-light::' }))
+    await user.click(screen.getByRole('button', { name: '::light::' }))
 
     expect(document.documentElement).not.toHaveClass('dark')
     expect(localStorage.getItem('theme')).toBe('light')
