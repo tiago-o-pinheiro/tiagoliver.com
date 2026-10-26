@@ -65,6 +65,34 @@ export const resumeEs: Models.Resume = {
   ],
   projects: [
     {
+      id: 'blogram',
+      name: 'Blogram',
+      category: 'Aplicación web · Código abierto',
+      status: 'Código abierto en GitHub',
+      tagline: 'Un diario propio para fotos, vídeos y enlaces',
+      summary:
+        'Un diario personal que alojas en tu propio servidor. Cualquiera puede leer, dar me gusta y compartir sin registrarse.',
+      highlights: [
+        'Desarrollada con Next.js, TypeScript, PostgreSQL y Drizzle, con inicio de sesión mediante Better Auth.',
+        'Admite fotos, vídeos subidos, YouTube, enlaces y noticias, con borradores, vista previa y un lugar opcional en cada publicación.',
+        'Guarda los archivos en el servidor o en un almacenamiento compatible con S3, como Cloudflare R2, y funciona en Railway o con Docker Compose.',
+        'Incluye búsqueda, un archivo por meses, un mapa de lugares, RSS, imágenes para compartir y la interfaz en inglés y español.',
+      ],
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'Drizzle',
+        'Better Auth',
+        'Tailwind CSS',
+        'Docker',
+      ],
+      link: {
+        label: 'github.com/tiago-o-pinheiro/blogram',
+        href: 'https://github.com/tiago-o-pinheiro/blogram',
+      },
+    },
+    {
       id: 'tides',
       name: 'Tides',
       category: 'Aplicación para Android · Código cerrado',

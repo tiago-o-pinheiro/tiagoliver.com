@@ -65,6 +65,34 @@ export const resumeEn: Models.Resume = {
   ],
   projects: [
     {
+      id: 'blogram',
+      name: 'Blogram',
+      category: 'Web app · Open source',
+      status: 'Open source on GitHub',
+      tagline: 'A self-hosted journal for photos, videos and links',
+      summary:
+        'A personal journal you host on your own server and domain. Anyone can read, like and share posts without an account.',
+      highlights: [
+        'Built with Next.js, TypeScript, PostgreSQL and Drizzle, with sign-in through Better Auth.',
+        'Supports photos, uploaded videos, YouTube, links and news, with drafts, previews and an optional place on each post.',
+        'Stores media on the server or in S3-compatible storage such as Cloudflare R2, and runs on Railway or Docker Compose.',
+        'Includes search, a monthly archive, a map of places, an RSS feed, share images and an English and Spanish interface.',
+      ],
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'Drizzle',
+        'Better Auth',
+        'Tailwind CSS',
+        'Docker',
+      ],
+      link: {
+        label: 'github.com/tiago-o-pinheiro/blogram',
+        href: 'https://github.com/tiago-o-pinheiro/blogram',
+      },
+    },
+    {
       id: 'tides',
       name: 'Tides',
       category: 'Android app · Closed source',
