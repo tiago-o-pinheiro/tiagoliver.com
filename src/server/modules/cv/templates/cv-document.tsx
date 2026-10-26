@@ -99,6 +99,9 @@ const styles = StyleSheet.create({
 
 const META_SEPARATOR = '  ·  '
 
+const linksOf = (project: Models.Project): Models.ResumeLink[] =>
+  project.source ? [project.link, project.source] : [project.link]
+
 type SectionProps = {
   title: string
   children: ReactNode
@@ -224,9 +227,16 @@ export const CvDocument = ({ resume, locale, t }: CvDocumentProps) => {
                   <Text style={styles.strong}>{project.name}</Text>
                   <Text style={styles.muted}>{`${META_SEPARATOR}${project.status}`}</Text>
                 </Text>
-                <Link src={project.link.href} style={[styles.entryDate, styles.link]}>
-                  {project.link.label}
-                </Link>
+                <Text style={styles.entryDate}>
+                  {linksOf(project).map((link, index) => (
+                    <Text key={link.href}>
+                      {index > 0 ? META_SEPARATOR : ''}
+                      <Link src={link.href} style={styles.link}>
+                        {link.label}
+                      </Link>
+                    </Text>
+                  ))}
+                </Text>
               </View>
               <Text>{project.summary}</Text>
             </View>

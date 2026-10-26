@@ -11,6 +11,22 @@ type ProjectEntriesProps = {
   t: Translator
 }
 
+type ProjectLinkProps = {
+  link: Models.ResumeLink
+}
+
+const ProjectLink = ({ link }: ProjectLinkProps) => (
+  <a
+    href={link.href}
+    target="_blank"
+    rel="noopener"
+    className={textLinkVariants({ className: 'break-words' })}
+  >
+    {link.label}
+    <span aria-hidden="true">&nbsp;↗</span>
+  </a>
+)
+
 export const ProjectEntries = ({ projects, t }: ProjectEntriesProps) => (
   <ul className="flex flex-col gap-10">
     {projects.map((project) => (
@@ -27,16 +43,13 @@ export const ProjectEntries = ({ projects, t }: ProjectEntriesProps) => (
           <BulletList items={project.highlights} />
           <TechList items={project.technologies} label={t('experience.stack')} />
           <FieldLine label={t('project.link')}>
-            <a
-              href={project.link.href}
-              target="_blank"
-              rel="noopener"
-              className={textLinkVariants({ className: 'break-words' })}
-            >
-              {project.link.label}
-              <span aria-hidden="true">&nbsp;↗</span>
-            </a>
+            <ProjectLink link={project.link} />
           </FieldLine>
+          {project.source ? (
+            <FieldLine label={t('project.source')}>
+              <ProjectLink link={project.source} />
+            </FieldLine>
+          ) : null}
         </article>
       </li>
     ))}

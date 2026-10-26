@@ -87,7 +87,8 @@ export const resumeEn: Models.Resume = {
         'Tailwind CSS',
         'Docker',
       ],
-      link: {
+      link: { label: 'photos.tiagoliver.eu', href: 'https://photos.tiagoliver.eu' },
+      source: {
         label: 'github.com/tiago-o-pinheiro/blogram',
         href: 'https://github.com/tiago-o-pinheiro/blogram',
       },
