@@ -38,9 +38,9 @@ export const PRINT_STROKE = {
 
 export const PRINT_SPACE = {
   pageX: 42,
-  pageY: 24,
-  section: 8,
-  block: 6,
+  pageY: 20,
+  section: 6,
+  block: 5,
   item: 2,
   bulletIndent: 9,
   labelColumn: 124,

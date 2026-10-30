@@ -65,6 +65,33 @@ export const resumeEn: Models.Resume = {
   ],
   projects: [
     {
+      id: 'flatkin',
+      name: 'Flatkin',
+      category: 'Web and mobile app · Closed source',
+      status: 'Private beta, coming to iOS and Android',
+      tagline: 'Shared expenses and day-to-day life for people who share a home',
+      summary:
+        'An app for people who share a home: expenses, chores, plans and a house board. I designed and built all of it.',
+      highlights: [
+        'Built as a Turborepo monorepo: an Expo app for iOS, Android and the web, and a Next.js API with PostgreSQL, Drizzle and Better Auth.',
+        'Keeps the money rules in a shared, tested TypeScript package: equal, share, exact and percentage splits, monthly statements and suggested transfers to settle up.',
+        'Supports sign-in with Google or Apple, single-use invite links and push notifications for new expenses.',
+        'Designed the brand, the interface and the landing page, in English and Spanish, with a currency, language and time zone for each home.',
+      ],
+      technologies: [
+        'React Native',
+        'Expo',
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'Drizzle',
+        'Better Auth',
+        'TanStack Query',
+        'Turborepo',
+      ],
+      link: { label: 'flatkin.app', href: 'https://flatkin.app' },
+    },
+    {
       id: 'blogram',
       name: 'Blogram',
       category: 'Web app · Open source',

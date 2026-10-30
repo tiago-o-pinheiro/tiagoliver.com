@@ -65,6 +65,33 @@ export const resumeEs: Models.Resume = {
   ],
   projects: [
     {
+      id: 'flatkin',
+      name: 'Flatkin',
+      category: 'Aplicación web y móvil · Código cerrado',
+      status: 'Beta privada, pronto en iOS y Android',
+      tagline: 'Gastos y día a día para quienes comparten casa',
+      summary:
+        'Una aplicación para compartir casa: gastos, turnos, planes y un tablón. La diseñé y desarrollé de principio a fin.',
+      highlights: [
+        'Monorepo con Turborepo: una aplicación con Expo para iOS, Android y la web, y una API en Next.js con PostgreSQL, Drizzle y Better Auth.',
+        'Reúne las reglas del dinero en un paquete de TypeScript compartido y con tests: repartos a partes iguales, por partes, con importes exactos o por porcentajes, estados de cuentas mensuales y transferencias sugeridas para saldar.',
+        'Permite iniciar sesión con Google o Apple, unirse con enlaces de invitación de un solo uso y recibir notificaciones de gastos nuevos.',
+        'Diseñé la marca, la interfaz y la web de presentación, en inglés y español, con moneda, idioma y zona horaria para cada casa.',
+      ],
+      technologies: [
+        'React Native',
+        'Expo',
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'Drizzle',
+        'Better Auth',
+        'TanStack Query',
+        'Turborepo',
+      ],
+      link: { label: 'flatkin.app', href: 'https://flatkin.app' },
+    },
+    {
       id: 'blogram',
       name: 'Blogram',
       category: 'Aplicación web · Código abierto',
