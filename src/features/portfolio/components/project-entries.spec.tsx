@@ -35,6 +35,25 @@ describe('ProjectEntries', () => {
     expect(screen.getByText('source')).toBeInTheDocument()
   })
 
+  it('Given a project published in app stores, should link to each store', () => {
+    const stores = [
+      { label: '::app-store::', href: 'https://example.com/::app-store::' },
+      { label: '::play-store::', href: 'https://example.com/::play-store::' },
+    ]
+
+    render(<ProjectEntries projects={[{ ...project, stores }]} t={getTranslator('en')} />)
+
+    expect(screen.getByText('stores')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: '::app-store::' })).toHaveAttribute(
+      'href',
+      'https://example.com/::app-store::',
+    )
+    expect(screen.getByRole('link', { name: '::play-store::' })).toHaveAttribute(
+      'href',
+      'https://example.com/::play-store::',
+    )
+  })
+
   it('Given a project without public source code, should show only its link', () => {
     render(<ProjectEntries projects={[project]} t={getTranslator('es')} />)
 

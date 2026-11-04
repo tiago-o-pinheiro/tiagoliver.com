@@ -68,7 +68,7 @@ export const resumeEs: Models.Resume = {
       id: 'flatkin',
       name: 'Flatkin',
       category: 'Aplicación web y móvil · Código cerrado',
-      status: 'Beta privada, pronto en iOS y Android',
+      status: 'Disponible en iOS y en la web, Android en revisión',
       tagline: 'Gastos y día a día para quienes comparten casa',
       summary:
         'Una aplicación para compartir casa: gastos, turnos, planes y un tablón. La diseñé y desarrollé de principio a fin.',
@@ -77,6 +77,7 @@ export const resumeEs: Models.Resume = {
         'Reúne las reglas del dinero en un paquete de TypeScript compartido y con tests: repartos a partes iguales, por partes, con importes exactos o por porcentajes, estados de cuentas mensuales y transferencias sugeridas para saldar.',
         'Permite iniciar sesión con Google o Apple, unirse con enlaces de invitación de un solo uso y recibir notificaciones de gastos nuevos.',
         'Diseñé la marca, la interfaz y la web de presentación, en inglés y español, con moneda, idioma y zona horaria para cada casa.',
+        'Publiqué la app de iOS en el App Store y envié la de Android a revisión en Google Play.',
       ],
       technologies: [
         'React Native',
@@ -90,6 +91,7 @@ export const resumeEs: Models.Resume = {
         'Turborepo',
       ],
       link: { label: 'flatkin.app', href: 'https://flatkin.app' },
+      stores: [{ label: 'App Store', href: 'https://apps.apple.com/app/id6828133111' }],
     },
     {
       id: 'blogram',

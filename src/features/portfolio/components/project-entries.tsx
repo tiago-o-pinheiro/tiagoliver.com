@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 import { textLinkVariants } from '@/design-system/ui/text-link'
 import { type Translator } from '@/i18n'
 import { type Models } from '@/models'
@@ -45,6 +47,16 @@ export const ProjectEntries = ({ projects, t }: ProjectEntriesProps) => (
           <FieldLine label={t('project.link')}>
             <ProjectLink link={project.link} />
           </FieldLine>
+          {project.stores ? (
+            <FieldLine label={t('project.stores')}>
+              {project.stores.map((store, index) => (
+                <Fragment key={store.href}>
+                  {index > 0 ? ' · ' : null}
+                  <ProjectLink link={store} />
+                </Fragment>
+              ))}
+            </FieldLine>
+          ) : null}
           {project.source ? (
             <FieldLine label={t('project.source')}>
               <ProjectLink link={project.source} />

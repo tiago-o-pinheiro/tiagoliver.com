@@ -99,8 +99,11 @@ const styles = StyleSheet.create({
 
 const META_SEPARATOR = '  ·  '
 
-const linksOf = (project: Models.Project): Models.ResumeLink[] =>
-  project.source ? [project.link, project.source] : [project.link]
+const linksOf = (project: Models.Project): Models.ResumeLink[] => [
+  project.link,
+  ...(project.stores ?? []),
+  ...(project.source ? [project.source] : []),
+]
 
 type SectionProps = {
   title: string
