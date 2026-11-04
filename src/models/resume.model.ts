@@ -59,6 +59,7 @@ export const Project = Type.Object({
   highlights: Type.Array(Text, { minItems: 1 }),
   technologies: Type.Array(Text),
   link: ResumeLink,
+  stores: Type.Optional(Type.Array(ResumeLink, { minItems: 1 })),
   source: Type.Optional(ResumeLink),
 })
 export type Project = Static<typeof Project>
